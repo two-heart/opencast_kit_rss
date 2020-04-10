@@ -14,11 +14,10 @@ def create_feed(feed_id, all_episodes, all_series, path):
     fg.description(meta_info.get('dcDescription', meta_info['dcTitle']))
     for item in all_episodes:
         fe = fg.add_entry()
-        fe.logo(item['attachments']['attachment']['url'])
         fe.id(item['mediapackage']['media']['track']['url'])
         fe.title(item['mediapackage']['title'] + ' ' + item['dcCreated'])
         fe.published(item['dcCreated'])
-        fe.description(meta_info.get('dcDescription', 'episode'))
+        fe.description(meta_info.get('dcDescription', 'no description'))
         fe.enclosure(item['mediapackage']['media']['track']['url'], 0,
                      item['mediapackage']['media']['track']['mimetype'])
     return fg.rss_str(pretty=True)

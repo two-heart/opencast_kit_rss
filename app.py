@@ -6,7 +6,7 @@ import re
 app = Flask(__name__)
 
 # remove this for production
-app.config["DEBUG"] = True
+# app.config["DEBUG"] = True
 
 
 @app.route('/')
